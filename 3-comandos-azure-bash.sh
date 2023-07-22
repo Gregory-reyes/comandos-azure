@@ -74,3 +74,43 @@ sudo su
 apt-get update -y && apt-get upgrade -y
 
 
+#INSTALANDO EXPRESS 
+
+#instalando express se crea una carpeta
+mkdir prueba_express_azure
+
+#entramos a la carpeta con cd y instalamos express
+npx express-generator --view ejs
+
+#instalamos las dependencias
+npm install
+
+#corremos el servidor en el puerto localhost:3000 
+npm start
+
+#ingresamos al entorno de wsl y desplegamos la carpeta creada en azure
+az webapp up --sku f1 --name prueba-express-azure 
+
+#comando para eliminar un grupo de recursos
+az group delete --resource-group greg_8408_rg_9485 --yes
+
+#Comando para subir los cambios 
+az webapp up 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
