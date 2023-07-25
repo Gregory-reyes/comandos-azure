@@ -97,7 +97,12 @@ az group delete --resource-group greg_8408_rg_9485 --yes
 #Comando para subir los cambios 
 az webapp up 
 
+#WEBAPP STATIC CON AZURE CLI
 
+#subir los cambios al repositorio y posterior actualizar en azure
+
+#comando para actualizar modificaciones en el repositorio
+az staticwebapp update --name cronometro-webapp-azure-static --resource-group prueba_static_07-23 --tags creado_por=Gregory
 
 
 

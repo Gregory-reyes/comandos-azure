@@ -45,7 +45,7 @@ azurevmcli.bash
 az login
 
 #creación del grupo de recurso con bash en location tambien se puede colocar: westus
-az group create --location westeurope --resource-group demoyoutube --tags gregory
+az group create --location westeurope --resource-group demoyoutube --tags creado_por=Gregory
 
 #creación con maquina virtual con bash creación de admin-user debe ser mayor a "12" 1-mayus 1-minus 1-number 1-caracter
 az vm create \
