@@ -21,6 +21,36 @@ cd "nombre del respositorio"
 #con el siguiente comando hacemos el despliegue y el adaptara el plan y recursos que no fueron creados
 az webapp up --location eastus --name restaurante-marleny --html
 
+#comando para abrir el editor de codigo ejemplo el index se guarda ctrl + s y ctrl + q para salir
+code index.html
+
+
+#COMO SE IMPLEMENTO DESPLIEGUE DE APP LAS RECOMENDACIONES AZURE
+mkdir htmlapp
+
+cd htmlapp
+
+#Ejecute el siguiente comando git para clonar el repositorio de aplicaciones de ejemplo en el directorio
+git clone https://github.com/Azure-Samples/html-docs-hello-world.git
+
+#Establezca variables para contener el grupo de recursos y los nombres de la aplicación mediante la ejecución de los comandos siguientes
+resourceGroup=$(az group list --query "[].{id:name}" -o tsv)
+appName=az204app$RANDOM
+
+#Cambie al directorio que contiene el código de ejemplo y ejecute el comando
+cd html-docs-hello-world
+
+az webapp up -g $resourceGroup -n $appName --html
+
+#modifcando el codigo de la app
+code index.html
+
+#Vuelva a implementar la aplicación con el mismo comando az webapp up que ha usado antes para ver cambios en la aplicación
+az webapp up -g $resourceGroup -n $appName --html
+
+
+
+
 #EJECUTANDO EL SCRIPT: Vm-linux-cli-bash
 
 #comando para arrancar el script de la Vm-linux-cli-bash.sh 
