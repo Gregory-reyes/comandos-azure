@@ -5,6 +5,19 @@
 #actualización de la maquina virtual
 sudo apt-get update
 
+#Pasos para crear un nuevo usuario y contraseña en ubuntu ***OPCIONAL*** 
+sudo adduser gregory 
+
+#Adhiero el usuario al grupo sudo
+sudo usermod -aG sudo gregory
+groups gregory
+
+#actualizo el sistema
+sudo apt update && sudo apt dist-upgrade -y
+
+#Ingresamos al usuario gregory
+su gregory
+
 #descargamos el paquete de wordpress en nuestro directorio
 sudo wget http://wordpress.org/latest.tar.gz 
 
@@ -50,8 +63,8 @@ GRANT ALL PRIVILEGES ON wordpress.* TO wordpressuser@localhost;
 #salimos de la base de datos de wordpress
 exit
 
-#configurar el archivo de la base de datos de wordpress
-ls
+#configurar el archivo de la base de datos en la carpeta wordpress
+cd wordpress/
 
 #ejecutamos el siguiente comando para copiar el archivo de configuración de wordpress
 sudo cp wp-config-sample.php wp-config.php
@@ -76,6 +89,57 @@ define( 'DB_HOST', 'localhost' );
 #Ingresamos el nombre de la base de datos, el usuario y la contraseña creada en la base de datos de mysql
 #Ingresamos el nombre del sitio web, el usuario y la contraseña de wordpress
 #Ingresamos a la pagina de wordpress creada en la IP publica de azure
+
+
+
+
+#PASOS PARA CONFIGURAR DOMINIO EN WORDPRESS
+
+#Ingresamos al directorio inicial
+#Ejecutamos el siguiente comando para ingresar el dominio y colocamos portafolio-gregory-reyes.engineer
+sudoedit /etc/hostname
+portafolio-gregory-reyes.engineer
+
+
+#Ingresamos el siguiente comando para y debajo de 127.0.0.1 localhost colocamos nuestro dominio
+sudoedit /etc/hosts
+
+127.0.0.1 localhost
+127.0.1.1 portafolio-gregory-reyes.engineer
+
+
+
+#PASOS CONFIGURAR CERBOT EN APACHE
+#actualizamos dependencias de apache2
+sudo apt-get install apache2 -y
+
+systemctl status apache2
+
+#instalación de sudo snap core; sudo snap refresh core
+sudo snap install core; sudo snap refresh core
+
+#instalación de certbot
+sudo snap install --classic certbot
+
+#creación de enlace simbolico
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+
+#instalación de certbot para apache cofiguramos nuestro correo  a la primera opcion Y a la segunda N
+#En space separated list colocamos nuestro dominio: portafolio-gregory-reyes.engineer
+sudo cerbot --apache2
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
