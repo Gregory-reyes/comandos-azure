@@ -26,6 +26,21 @@ https://learn.microsoft.com/es-es/training/modules/explore-api-management/8-exer
 #6.Terminado con los recursos que creó en este ejercicio, use el comando para eliminar el grupo de recursos y todos los recursos relacionados.
 az group delete --name az204-apim-rg
 
+#LLAMADO DE UANA CONSULTA DE UNA API
+#Clone el repositorio de GitHub
+git clone https://github.com/MicrosoftDocs/mslearn-publish-manage-apis-with-azure-api-management.git
+
+#Una vez que se complete la operación, abra la carpeta del repositorio local y enumere su contenido mediante la ejecución de los siguientes comandos.
+cd mslearn-publish-manage-apis-with-azure-api-management
+ls -l
+
+#ingresamos a archivo setup.sh el primer link generado ingresamos y el segundo lo copiamos en blog de notas
+bash setup.sh
+
+#para mas información de la implementación de la API en Azure API Management el siguiente link
+https://learn.microsoft.com/es-es/training/modules/publish-manage-apis-with-azure-api-management/1-introduction
+
+
 
 
 
